@@ -21,23 +21,28 @@
 #ifndef ASSETSMANAGER_HPP
 #define ASSETSMANAGER_HPP
 
-#include <iostream>
-
-using namespace std;
-
 #include <QString>
 #include <QObject>
 #include <QDir>
 
-class AssetsManager
+#include <iostream>
+using namespace std;
+
+#include "common.hpp"
+
+class AssetsManager;
+/*!
+ * \brief The AssetsManager class
+ */
+class HI_CALENDAR_EXPORT AssetsManager
 {
 public:
-    enum assetType{db_asset,file_asset,qrc_asset};
-    static QString getAssetsAddress(assetType _AssetType, QString _Offset="");
+    enum AssetType{db_asset,file_asset,qrc_asset};
+    static QString getAssetsAddress(AssetType _AssetType, QString _Offset="");
 private:
     AssetsManager() {}
     AssetsManager(AssetsManager&) {}
-    AssetsManager(AssetsManager*) {}
+    explicit AssetsManager(AssetsManager*) {}
 };
 
 #endif // ASSETSMANAGER_HPP
